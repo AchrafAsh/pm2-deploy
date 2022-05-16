@@ -1,0 +1,20 @@
+name: Deploy KeystoneJS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }} # public DNS eg. 663ac81e-3e4e-4fee-85b4-40c91c0f80fd.pub.instances.scw.cloud
+          username: ${{ secrets.USER }} # eg. achraf
+          key: ${{ secrets.KEY }} # ssh_key
+          script: sh deploy.sh

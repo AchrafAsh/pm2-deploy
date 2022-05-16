@@ -1,0 +1,20 @@
+{
+  "apps": [
+      {
+          "name": "APP_NAME",
+          "env_production": {
+              "NODE_ENV": "production"
+          }
+      }
+  ],
+  "deploy": {
+      "production": {
+          "host": ["HOST"],
+          "user": "USER",
+          "key": "~/.ssh/id_rsa.pub",
+          "ref": "origin/main",
+          "repo": "REPO",
+          "path": "/home/achraf/APP_NAME"
+      }
+  }
+}
